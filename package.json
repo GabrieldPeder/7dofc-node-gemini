@@ -1,0 +1,37 @@
+{
+  "name": "7dofc-node-gemini",
+  "version": "1.0.0",
+  "description": "Projeto do desafio #7DaysOfCode com Node.js e Gemini API",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "nodejs",
+    "typescript",
+    "gemini",
+    "jest"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.14.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.8",
+    "@types/supertest": "^6.0.2",
+    "@types/uuid": "^9.0.8",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.1.5",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.2",
+    "uuid": "^10.0.0"
+  }
+}

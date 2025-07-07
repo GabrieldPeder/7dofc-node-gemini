@@ -1,0 +1,16 @@
+# Arquivo de segredos - ESSENCIAL PARA SEGURANÇA
+.env
+
+# Dependências do Node.js
+node_modules
+
+# Arquivos de compilação do TypeScript
+dist
+
+# Logs de debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de configuração do VSCode
+.vscode/
