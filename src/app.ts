@@ -1,10 +1,11 @@
-import 'dotenv/config';
-import express from 'express';
+import "dotenv/config";
+import express from "express";
+import { setupSwagger } from "./swagger"; // Importa nossa configuração do Swagger
 
 // --- Importação dos Roteadores ---
-import templateRoutes from './controllers/TemplateController';
-import chatRoutes from './controllers/ChatController';
-import categoryRoutes from './controllers/CategoryController'; // Importa o novo controller de categorias
+import templateRoutes from "./controllers/TemplateController";
+import chatRoutes from "./controllers/ChatController";
+import categoryRoutes from "./controllers/CategoryController";
 
 const app = express();
 
@@ -12,10 +13,13 @@ const app = express();
 app.use(express.json());
 
 // --- Montagem das Rotas ---
-// Monta todas as rotas no prefixo /api/v1
-app.use('/api/v1', chatRoutes);
-app.use('/api/v1', templateRoutes);
-app.use('/api/v1', categoryRoutes); // Adiciona as rotas de categoria à aplicação
+app.use("/api/v1", chatRoutes);
+app.use("/api/v1", templateRoutes);
+app.use("/api/v1", categoryRoutes);
+
+// --- Configuração do Swagger ---
+// Esta função configura a rota /api-docs
+setupSwagger(app);
 
 // Exporta a instância 'app' para que os testes possam usá-la
 export { app };

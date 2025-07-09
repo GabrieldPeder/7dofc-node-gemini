@@ -11,7 +11,7 @@ export const findAll = (): Category[] => {
 
 // Encontra uma categoria pelo seu ID
 export const findById = (id: string): Category | undefined => {
-  return categories.find(category => category.id === id);
+  return categories.find((category) => category.id === id);
 };
 
 // Salva uma nova categoria
@@ -26,23 +26,27 @@ export const create = (name: string, description?: string): Category => {
 };
 
 // Atualiza uma categoria existente
-export const update = (id: string, name: string, description?: string): Category | undefined => {
-    const categoryIndex = categories.findIndex(category => category.id === id);
-    if (categoryIndex === -1) {
-        return undefined; // Retorna undefined se não encontrar
-    }
-    const updatedCategory = { ...categories[categoryIndex], name, description };
-    categories[categoryIndex] = updatedCategory;
-    return updatedCategory;
+export const update = (
+  id: string,
+  name: string,
+  description?: string
+): Category | undefined => {
+  const categoryIndex = categories.findIndex((category) => category.id === id);
+  if (categoryIndex === -1) {
+    return undefined; // Retorna undefined se não encontrar
+  }
+  const updatedCategory = { ...categories[categoryIndex], name, description };
+  categories[categoryIndex] = updatedCategory;
+  return updatedCategory;
 };
 
 // Deleta uma categoria
 export const remove = (id: string): Category | undefined => {
-    const categoryIndex = categories.findIndex(category => category.id === id);
-    if (categoryIndex === -1) {
-        return undefined; // Retorna undefined se não encontrar
-    }
-    // 'splice' remove o item e retorna um array com os itens removidos
-    const [removedCategory] = categories.splice(categoryIndex, 1);
-    return removedCategory;
+  const categoryIndex = categories.findIndex((category) => category.id === id);
+  if (categoryIndex === -1) {
+    return undefined; // Retorna undefined se não encontrar
+  }
+  // 'splice' remove o item e retorna um array com os itens removidos
+  const [removedCategory] = categories.splice(categoryIndex, 1);
+  return removedCategory;
 };
