@@ -1,0 +1,49 @@
+# Nome do nosso fluxo de trabalho. Aparecerá na aba "Actions" do GitHub.
+name: CI - Node.js Tests
+
+# Define os gatilhos (eventos) que iniciarão este workflow.
+on:
+  # Roda quando um pull request é aberto ou atualizado para a branch 'main'.
+  pull_request:
+    branches: [ "main" ]
+  # Permite que você rode este workflow manualmente pela aba "Actions".
+  workflow_dispatch:
+
+# Define um ou mais "trabalhos" (jobs) que o workflow executará.
+jobs:
+  # Nome do nosso job. Pode ser qualquer nome.
+  build-and-test:
+    # O tipo de máquina virtual que o job vai rodar. 'ubuntu-latest' é comum e econômico.
+    runs-on: ubuntu-latest
+
+    # Define a estratégia de matriz, útil para testar em várias versões do Node.js.
+    strategy:
+      matrix:
+        # Vamos testar apenas na versão 18.x, que é a que usamos para desenvolver.
+        node-version: [18.x]
+
+    # A sequência de passos que o job executará.
+    steps:
+      # Passo 1: Clona o seu repositório para a máquina virtual do GitHub.
+      # Usa uma "action" pré-feita pela comunidade.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Passo 2: Configura a versão do Node.js especificada na matriz.
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          # Usar cache para o npm acelera as execuções futuras.
+          cache: 'npm'
+
+      # Passo 3: Instala todas as dependências do projeto.
+      # É o mesmo que você faz localmente.
+      - name: Install dependencies
+        run: npm install
+
+      # Passo 4: Roda o script de teste que definimos no package.json.
+      # Este é o passo mais importante, que valida seu código.
+      - name: Run tests
+        run: npm test
+
