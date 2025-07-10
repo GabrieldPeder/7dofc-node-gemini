@@ -1,6 +1,6 @@
 # Smart Prompter API - #7DaysOfCode
 
-![Status do CI](https://github.com/SEU-UTILIZADOR/SEU-REPOSITORIO/actions/workflows/ci.yml/badge.svg)
+![Status do CI](https://github.com/GabrieldPeder/Node-Gemini/actions/workflows/ci.yml/badge.svg)
 
 Projeto desenvolvido como parte do desafio **#7DaysOfCode de Node.js** da Alura, focado na construção de uma API RESTful para gerir templates de prompts e interagir com a Inteligência Artificial do Google, Gemini.
 
@@ -38,10 +38,10 @@ Siga os passos abaixo para configurar e executar o projeto no seu ambiente local
 
 ### Instalação
 
-1.  Clone este repositório. **Não se esqueça de substituir `SEU-UTILIZADOR` e `SEU-REPOSITORIO` pelo seu utilizador e nome do repositório no GitHub.**
+1.  Clone este repositório. 
     ```bash
-    git clone [https://github.com/SEU-UTILIZADOR/SEU-REPOSITORIO.git](https://github.com/SEU-UTILIZADOR/SEU-REPOSITORIO.git)
-    cd SEU-REPOSITORIO
+    git clone [https://github.com/GabrieldPeder/Node-Gemini.git](https://github.com/GabrieldPeder/Node-Gemini.git)
+    cd Node-Gemini 
     ```
 
 2.  Instale todas as dependências do projeto:
